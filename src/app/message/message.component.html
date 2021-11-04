@@ -1,0 +1,12 @@
+<div *ngIf="messageService.messages.length"> <!-- here we are using the if condition to check if the array has anything in it-->
+
+    <h2> Messages </h2>
+    <button class="clear" 
+    (click)="messageService.clear()"> Clear Message </button> <!-- this clears the array by calling our method -->
+
+
+    <div *ngFor='let message of messageService.messages'>{{ message }}</div> <!-- this loops through to display the message-->
+
+
+
+</div>
