@@ -8,6 +8,7 @@ export class MessageService {
   messages: string[] = []; // this is an array of type string
 
   add(message: string){
+    this.clear();
     this.messages.push(message);
     //this method adds to the array
   }

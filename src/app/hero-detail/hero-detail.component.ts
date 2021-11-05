@@ -29,4 +29,8 @@ export class HeroDetailComponent implements OnInit {
 
   }
 
+  goBack(): void {
+    this.location.back(); //by using the location we can go back based off of the url
+  }
+
 }
