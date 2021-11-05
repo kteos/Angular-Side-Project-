@@ -1,0 +1,12 @@
+<h2> Top Heroes </h2>
+<div class="heroes-menu">
+
+    <a *ngFor="let hero of heroes"
+    routerLink="/detail/{{ hero.id}}"> <!-- here as we loop through we use the current hero id to add it to the url path-->
+        {{ hero.name}}</a>
+
+        <!-- this loops through this components hero array and creates a link 
+        for every single one -->
+
+
+</div>

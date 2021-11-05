@@ -15,6 +15,12 @@ export class HeroService {
     return heroes;
   }
 
+  getHero( id: number): Observable<Hero> {
+    const hero = Heroes.find( h => h.id === id)!;
+    this.messageService.add( `HeroService: fetched hero id: ${id}`);
+    return of(hero);
+  }
+
   constructor(private messageService: MessageService) { 
     // by passing it via constructor we then create messageSevice through injection 
 /** here is a service in service scenario, message service is injected into hero service
