@@ -24,11 +24,11 @@ import { InMemoryDataService } from './in-memory-data.service';
     FormsModule,
     AppRoutingModule, // when adding an import you need to add it to this array so it can be used
     HttpClientModule,
-    HttpClientInMemoryWebApiModule 
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false})
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 
-HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}); //this takes our request and intercepts it with our in memory data
+//HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}); //this takes our request and intercepts it with our in memory data
 export class AppModule { }

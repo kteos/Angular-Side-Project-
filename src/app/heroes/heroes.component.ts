@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero'; // weve imported our interface here 
 import { HeroService } from '../hero.service';
-import { MessageService } from '../message.service';
+
 
 @Component({
   selector: 'app-heroes',
@@ -14,7 +14,7 @@ export class HeroesComponent implements OnInit {
 
  
   
-constructor(private HeroService: HeroService , private messageService: MessageService) { 
+constructor(private HeroService: HeroService  ) { 
     /**
      * you dont want to do too much work in constructors while you can call 
      * methods here its best practice to do it in the life cycle hook

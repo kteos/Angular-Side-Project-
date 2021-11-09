@@ -10,11 +10,24 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'; // this is to ma
 })
 export class HeroService {
 
+  constructor(private messageService: MessageService,
+    private http: HttpClient ) { 
+// by passing it via constructor we then create messageSevice through injection 
+/** here is a service in service scenario, message service is injected into hero service
+*  which injected into Hero Component */
+
+}
+
+
+  private heroesUrl = 'api/heroes'; //this is the url to the web api
+
   getHeroes(): Observable<Hero[]> {
-    const heroes = of(Heroes);
-    this.log('Fetched Heroes');
-    return heroes;
-  }
+  //   // const heroes = of(Heroes);
+  //   // this.log('Fetched Heroes'); this is the previous code 
+  //   return heroes;
+
+    return this.http.get<Hero[]>(this.heroesUrl);
+   }
 
   getHero( id: number): Observable<Hero> {
     const hero = Heroes.find( h => h.id === id)!; //im not really too sure what the exclamation point is doing
@@ -22,13 +35,8 @@ export class HeroService {
     return of(hero);
   }
 
-  constructor(private messageService: MessageService,
-              private http: HttpClient ) { 
-    // by passing it via constructor we then create messageSevice through injection 
-/** here is a service in service scenario, message service is injected into hero service
- *  which injected into Hero Component */
 
-  }
+
 
     //private method to write out messages
   private log( message:string) {
